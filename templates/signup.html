@@ -1,0 +1,102 @@
+{% load static %}
+<html>
+    <head>
+        <style>
+            body {
+    background-image: radial-gradient(circle at 77% 66%, rgba(33,166,166, 0.05) 0%, rgba(33,166,166, 0.05) 9%,transparent 9%, transparent 43%,transparent 43%, transparent 100%),radial-gradient(circle at 6% 56%, rgba(33,166,166, 0.05) 0%, rgba(33,166,166, 0.05) 20%,transparent 20%, transparent 56%,transparent 56%, transparent 100%),radial-gradient(circle at 48% 45%, rgba(33,166,166, 0.05) 0%, rgba(33,166,166, 0.05) 15%,transparent 15%, transparent 85%,transparent 85%, transparent 100%),radial-gradient(circle at 89% 6%, rgba(33,166,166, 0.05) 0%, rgba(33,166,166, 0.05) 5%,transparent 5%, transparent 32%,transparent 32%, transparent 100%),radial-gradient(circle at 71% 38%, rgba(33,166,166, 0.05) 0%, rgba(33,166,166, 0.05) 14%,transparent 14%, transparent 21%,transparent 21%, transparent 100%),radial-gradient(circle at 84% 78%, rgba(33,166,166, 0.05) 0%, rgba(33,166,166, 0.05) 11%,transparent 11%, transparent 85%,transparent 85%, transparent 100%),radial-gradient(circle at 92% 72%, rgba(33,166,166, 0.05) 0%, rgba(33,166,166, 0.05) 42%,transparent 42%, transparent 51%,transparent 51%, transparent 100%),radial-gradient(circle at 73% 95%, rgba(33,166,166, 0.05) 0%, rgba(33,166,166, 0.05) 48%,transparent 48%, transparent 63%,transparent 63%, transparent 100%),radial-gradient(circle at 29% 29%, rgba(33,166,166, 0.05) 0%, rgba(33,166,166, 0.05) 24%,transparent 24%, transparent 73%,transparent 73%, transparent 100%),linear-gradient(90deg, rgb(230,235,245),rgb(230,235,245));
+
+    font-family: Arial, sans-serif;
+}
+
+form {
+    max-width: 350px;
+    height:550px;
+    margin: 75 auto;
+    background: lightblue;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    padding:1px;
+}
+
+p {
+    text-align: left;
+}
+
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 0px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    margin-left:130px;
+    margin-top:30px;
+    align:center;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+        </style>
+    </head>
+    <body >
+
+
+        <form method='POST' action="register">
+            {% csrf_token %}
+            <h2 align="center">Sign up</h2>
+
+            <p align="center">First Name    <input  type="text"  name="fn"  required></p>
+
+
+             <p align="center">Last Name    <input  type="text"  name="ln" align="center" required></p>
+
+            <p align="center">User Name:<input type="text" name="username" required></p>
+
+             <p align="center">Email    <input  type="email"  name="email" required></p>
+
+
+             <p align="center">Password     <input  type="password"  name="password" align="center" required></p>
+
+
+            <p align="center">Confirm Password     <input  type="password"  name="password2" align="center" required></p>
+
+
+            <input type="checkbox" name="checkbox" required><i>I agree to airline Terms and privacy policy</i>
+             <input type="submit" value="Sign Up"></form>
+        </form>
+
+
+    </body>
+</html>

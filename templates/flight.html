@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viman</title>
+    <style>
+         header img {
+                height: 80px;
+                margin-left: 40px;
+                border-radius: 50%
+            }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-image: linear-gradient(112.5deg, rgb(124,217,250) 0%, rgb(124,217,250) 10%,rgb(146,207,207) 10%, rgb(146,207,207) 53%,rgb(117,190,190) 53%, rgb(117,190,190) 55%,rgb(85,194,213) 55%, rgb(85,194,213) 60%,rgb(39,114,137) 60%, rgb(39,114,137) 88%,rgb(91,219,219) 88%, rgb(91,219,219) 91%,rgb(109,174,137) 91%, rgb(109,174,137) 100%),linear-gradient(157.5deg, rgb(124,217,250) 0%, rgb(124,217,250) 10%,rgb(146,207,207) 10%, rgb(146,207,207) 53%,rgb(117,190,190) 53%, rgb(117,190,190) 55%,rgb(85,194,213) 55%, rgb(85,194,213) 60%,rgb(39,114,137) 60%, rgb(39,114,137) 88%,rgb(91,219,219) 88%, rgb(91,219,219) 91%,rgb(109,174,137) 91%, rgb(109,174,137) 100%),linear-gradient(135deg, rgb(124,217,250) 0%, rgb(124,217,250) 10%,rgb(146,207,207) 10%, rgb(146,207,207) 53%,rgb(117,190,190) 53%, rgb(117,190,190) 55%,rgb(85,194,213) 55%, rgb(85,194,213) 60%,rgb(39,114,137) 60%, rgb(39,114,137) 88%,rgb(91,219,219) 88%, rgb(91,219,219) 91%,rgb(109,174,137) 91%, rgb(109,174,137) 100%),linear-gradient(90deg, rgb(146,207,207),rgb(228, 228, 228)); background-blend-mode:overlay,overlay,overlay,normal;
+            background-size: cover;
+            padding: 0;
+
+        }
+        header {
+            background-color: #023047;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Adjust alignment */
+            box-shadow: 0 0 25px 0 black;
+            padding: 0 20px; /* Add padding for better spacing */
+        }
+        header ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            margin-left: auto; /* Align the navbar to the right */
+        }
+        header li {
+            margin: 0 10px;
+        }
+        header li a {
+            color: white;
+            text-decoration: none;
+        }
+        header li a.home,
+        header li a.signup {
+            color: white; /* Set the color of Home and Signup links to white */
+        }
+        header li:hover {
+            background-color: #8d99ae;
+            padding: 20px;
+            border-radius: 30%;
+            color: black;
+        }
+
+        main {
+            margin-top: 100px; /* Adjust according to the height of the header */
+            padding: 30px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px auto;
+            max-width: 800px; /* Adjust according to your preference */
+        }
+        ul li {
+            background-color: #1e6091;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        ul li:not(:last-child) {
+            border-bottom: 1px solid #eeeeee;
+        }
+        input[type="button"] {
+            background-color: rgb(0, 76, 255);
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        input[type="button"]:hover {
+         color: aliceblue;
+        }
+        .trip-info select{
+                background-color: darkslategrey;
+                border-color: darkslategrey;
+                border-radius: 5px;
+                color:white ;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="home">
+           <img src="{% static 'images.png' %}" alt="Flight Image">
+        </a>
+        <h1 style="color: white;"><pre>  Viman</pre></h1>
+        <ul>
+            <li><a href="http://127.0.0.1:8000/">Home</a>
+</li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Terms of use</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="login">Login</a></li>
+            <li><a class="signup" href="signup">Signup</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <ul>
+            {% for flight in flights %}
+                <li>
+                    Departure: {{ flight.From1 }} <br>
+                    Arrival: {{ flight.to }} <br>
+                    Price:{{ flight.price }}<br>
+                    <a href="payment"><input type="button" value="Book Ticket" onclick="window.location.href='payment.html';"/></a>
+
+
+
+                </li>
+            {% empty %}
+                <p>No flights available.</p>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>
